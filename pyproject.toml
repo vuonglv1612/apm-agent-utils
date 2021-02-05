@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "apm-agent-utils"
-version = "1.0.0"
+version = "1.0.1"
 description = "This package can help you create Elastic APM instrumentations using regex"
 authors = ["vuonglv <it.vuonglv@gmail.com>"]
 keywords = ["apm", "elastic", "utils", "apm-utils", "agent"]
