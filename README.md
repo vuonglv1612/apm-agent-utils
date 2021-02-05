@@ -71,6 +71,8 @@ def run():
 if __name__ == "__main__":
     app.run(debug=True)
 ```
+Project structure look like this:  
+![structure](screenshots/structure.png)  
 Run app
 ```bash
 python3 main.py
@@ -79,3 +81,5 @@ Get your endpoint
 ```curl
 curl --location --request GET 'http://localhost:5000'
 ```
+Goto your APM dashboard, result look like this:
+![successful dashboard](screenshots/dashboard.png)
