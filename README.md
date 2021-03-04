@@ -2,8 +2,8 @@
 This package can help you create Elastic APM instrumentations using regex.
 
 ### Dependencies
-1. `python3.6+`  
-2. `elastic-apm`  
+1. `python2.7+ || python3.6+`  
+2. `elastic-apm 5.4.0+`  
 
 ### Installation
 ```sh

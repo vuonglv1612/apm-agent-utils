@@ -1,5 +1,4 @@
 import functools
-from typing import Any, Callable, Optional
 
 import elasticapm
 
@@ -7,22 +6,21 @@ from .utils import get_function_name
 
 
 def default_transaction_name_creator(
-    func: Callable[..., Any], *args: Any, **kwargs: Any
+    func, *args, **kwargs
 ):
     return get_function_name(func)
 
 
-def default_result_creator(result: Any):
+def default_result_creator(result):
     return "success"
-
 
 class CustomAPMClient(elasticapm.Client):
     def capture_function(
         self,
-        func: Callable[..., Any],
-        transaction_type: Optional[str] = "logic",
-        transaction_name_creator: Optional[Callable[..., str]] = None,
-        result_creator: Optional[Callable[..., Any]] = None,
+        func,
+        transaction_type = "logic",
+        transaction_name_creator=None,
+        result_creator=None,
     ):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):

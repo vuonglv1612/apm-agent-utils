@@ -25,7 +25,7 @@ def call_method(self, module, method, wrapped, instance, args, kwargs):
 
 
 class InstrumentationBuilder:
-    def __init__(self, name: str) -> None:
+    def __init__(self, name):
         self.name = name
         self._span_type = "logic"
         self._span_subtype = "function"
@@ -68,10 +68,13 @@ class InstrumentationBuilder:
             "_before_instrument_handlers": self._before_instrument_handlers,
             "_after_instrument_handlers": self._after_instrument_handlers,
         }
+        methods = dict()
+        methods.update(self.attributes)
+        methods.update(self.methods)
         return (
             self.name,
             (AbstractInstrumentedModule,),
-            {**self.attributes, **self.methods},
+            methods
         )
 
     def create_instrument(self):
